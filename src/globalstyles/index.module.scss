@@ -25,6 +25,10 @@ body {
   padding: 0;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 main {
   box-sizing: border-box;
   padding-top: 1rem;
