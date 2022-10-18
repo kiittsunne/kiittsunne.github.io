@@ -1,0 +1,34 @@
+---
+title: "Triviago | Responsive Quiz App"
+slug: "triviago"
+description: "A responsive Frontend Quiz App made with Vite (React/Typescript) + Tailwind. Hosted on Github Pages. Content courtesy of The Trivia API: https://the-trivia-api.com/docs/ "
+github: "https://github.com/kiittsunne/triviago"
+demo: "https://kiittsunne.github.io/triviago/"
+published: true
+---
+
+import Table from "../../../components/table";
+
+# TRIVIAGO
+
+### Project Overview
+
+My friends and I enjoy puzzle hunts and knowing lots of random trivia is usually helpful. This made me think of creating Triviago partly as a training tool, partly as a fun side project, and partly as a way to explore newer frontend technologies.
+
+In the end, the game has 3 'game modes':
+
+<Table
+  headerRow={["Feeling Lucky", "Normal Quiz", "Sudden Death"]}
+  rows={[
+    [
+      "https://res.cloudinary.com/kiittsunne/video/upload/e_loop:10,br_3564k,c_scale,f_gif,h_600,q_100/v1665656903/2022-10-13_18.04.00_n3blah.gif",
+      "https://res.cloudinary.com/kiittsunne/video/upload/e_loop:10,br_3564k,c_scale,f_gif,h_600,q_100/v1665656903/2022-10-13_18.03.55_yf0ttb.gif",
+      "https://res.cloudinary.com/kiittsunne/video/upload/e_loop:10,br_3564k,c_scale,f_gif,h_600,q_100/v1665656903/2022-10-13_18.03.46_jonlba.gif",
+    ],
+    [
+      "Slot machine tiles represent themes and 12 questions from each unique theme will be fetched",
+      "Choose multiple categories, set difficulty and limit number of questions",
+      "Player gets 30 hard questions, 10s to answer each question and lose lives if wrong/ no answer",
+    ],
+  ]}
+/>
