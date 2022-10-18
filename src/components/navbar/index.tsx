@@ -1,44 +1,68 @@
-import React, { Dispatch, SetStateAction } from "react";
-import { Link, navigate } from "gatsby";
-import cv from "../../images/license.png";
-import me from "../../images/hello.png";
-import projects from "../../images/portfolio.png";
+import React, { useState } from "react";
+import { isMobile } from "react-device-detect";
+import { Link } from "gatsby";
+import { AnchorLink } from "gatsby-plugin-anchor-links";
+import navitems from "./navdata.json";
+import cubeUp from "../../images/cubeUp.png";
+import cubeDown from "../../images/cubeDown.png";
 import * as navbar from "./index.module.scss";
-import Tippy from "@tippyjs/react";
-import "tippy.js/dist/tippy.css";
-import "tippy.js/dist/backdrop.css";
-import "tippy.js/animations/shift-away.css";
+
+type NavButtonProps = {
+  id: string;
+  title: string;
+  link: string;
+};
+
+const NavButton = (props: NavButtonProps) => (
+  <AnchorLink to={props.link}>
+    <div>
+      <p>{props.id}</p>
+      <h4>{props.title}</h4>
+    </div>
+  </AnchorLink>
+);
 
 const Navbar = () => {
+  const [isHover, setIsHover] = useState(cubeUp);
+  const [openMenu, setOpenMenu] = useState(false);
   return (
     <nav className={navbar.wrapper}>
-      <header className={navbar.title}>
-        <Link to="/" style={{ textDecoration: "none" }}>
+      <header
+        className={navbar.title}
+        onMouseEnter={() => {
+          setIsHover(cubeDown);
+        }}
+        onMouseLeave={() => {
+          setIsHover(cubeUp);
+        }}
+      >
+        <Link to="/">
+          <img src={isHover} alt="Logo" />
           <h1>Kit Chow</h1>
         </Link>
       </header>
       <section className={navbar.icons}>
-        <Tippy content="Download my CV">
-          <div id="downloadCv">
-            <img src={cv} alt="download my cv" />
-          </div>
-        </Tippy>
-        <div className={navbar.divider}></div>
-        <Tippy content="About/Contact Me">
-          <div>
-            <Link to="/about">
-              <img src={me} alt="about me" id="about" />
-            </Link>
-          </div>
-        </Tippy>
-
-        <Tippy content="My Projects">
-          <div id="projects">
-            <Link to="/projects">
-              <img src={projects} alt="my projects" />
-            </Link>
-          </div>
-        </Tippy>
+        {isMobile && (
+          <>
+            <div
+              className={navbar.mobileMenuButton}
+              onClick={() => {
+                setOpenMenu((prev) => !prev);
+              }}
+            >
+              {openMenu ? "×" : "Ξ"}
+            </div>
+            {openMenu && (
+              <div className={navbar.mobileMenuWrapper}>
+                {navitems.map((item: NavButtonProps) => (
+                  <NavButton {...item} />
+                ))}
+              </div>
+            )}
+          </>
+        )}
+        {!isMobile &&
+          navitems.map((item: NavButtonProps) => <NavButton {...item} />)}
       </section>
     </nav>
   );

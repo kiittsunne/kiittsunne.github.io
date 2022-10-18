@@ -1,12 +1,14 @@
 import React, { ReactElement } from "react";
-import "../globalstyles/index.module.scss";
+import "../styles/global.scss";
 import Navbar from "./navbar";
+import Footer from "./footer";
 
 const Layout = ({ children }: { children: ReactElement }) => {
   return (
     <main>
       <Navbar />
-      {children}
+      <div>{children}</div>
+      <Footer />
     </main>
   );
 };

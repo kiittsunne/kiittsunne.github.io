@@ -4,6 +4,15 @@
   right: 0;
   width: 290px;
   height: 361px;
+  z-index: -1;
+}
+
+$breakpoint-halfscreen: 780px;
+$breakpoint-mobile: 450px;
+@media (max-width: $breakpoint-halfscreen) and (min-width: $breakpoint-mobile) {
+  .container {
+    opacity: 0.3;
+  }
 }
 
 .image {

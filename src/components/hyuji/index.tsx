@@ -25,11 +25,11 @@ const Hyuji = () => {
         setBoxC(`${hyuji.box} c`);
         setBoxD(`${hyuji.box} d`);
 
-        if (leftAngleDeg >= 20 && leftAngleDeg <= 90) {
+        if (leftAngleDeg >= 0 && leftAngleDeg <= 90) {
           setBoxA(`${hyuji.box} a ${hyuji.pupil}`);
         } else if (leftAngleDeg > 90 && leftAngleDeg <= 180) {
           setBoxB(`${hyuji.box} b ${hyuji.pupil}`);
-        } else if (-90 < leftAngleDeg && leftAngleDeg < 20) {
+        } else if (-90 < leftAngleDeg && leftAngleDeg < 0) {
           setBoxC(`${hyuji.box} c ${hyuji.pupil}`);
         } else {
           setBoxD(`${hyuji.box} d ${hyuji.pupil}`);
