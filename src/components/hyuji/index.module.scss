@@ -1,7 +1,7 @@
 .container {
   position: absolute;
   bottom: 0;
-  right: 0;
+  right: 1em;
   width: 290px;
   height: 361px;
   z-index: -1;
@@ -12,6 +12,12 @@ $breakpoint-mobile: 450px;
 @media (max-width: $breakpoint-halfscreen) and (min-width: $breakpoint-mobile) {
   .container {
     opacity: 0.3;
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .container {
+    right: 0;
   }
 }
 

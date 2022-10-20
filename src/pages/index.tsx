@@ -43,6 +43,16 @@ const Home = () => {
             a career in engineering
           </p>
         </article>
+
+          <div className={homepage.aboutBtns}>
+            <Link to="/projects">
+              <button>Peep my Projects</button>
+            </Link>
+            <a href={file} download>
+              <button>Download my CV</button>
+            </a>
+          </div>
+        </section>
       </>
     </Layout>
   );
