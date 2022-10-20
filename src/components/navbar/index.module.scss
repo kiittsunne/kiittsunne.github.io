@@ -107,8 +107,8 @@ $breakpoint-tablet: 500px;
   }
 
   .icons {
-    flex-grow: 1;
-    max-width: 480px;
+    flex-grow: 2;
+    max-width: 450px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -119,8 +119,8 @@ $breakpoint-tablet: 500px;
       text-decoration: none;
       font-family: monospace;
       text-align: right;
-      flex: 1;
-      margin-left: 0.25em;
+      // flex: 1;
+      // margin-left: 0.25em;
 
       div {
         display: flex;
