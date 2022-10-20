@@ -20,30 +20,30 @@ export const query = graphql`
   }
 `;
 
+type nodeProp = {
+  frontmatter: {
+    title: string;
+    description?: string;
+    slug: string;
+    github: string;
+    demo?: string;
+  };
+  id: string;
+};
+
 const Projects = ({ data }: { data: any }) => {
   return (
     <Layout>
       <div>
-        {data.allMdx.nodes.map(
-          (node: {
-            frontmatter: {
-              title: string;
-              description?: string;
-              slug: string;
-              github: string;
-              demo?: string;
-            };
-            id: string;
-          }) => (
-            <article key={node.id}>
-              <h1>
-                <Link to={`/projects/${node.frontmatter.slug}`}>
-                  {node.frontmatter.title}
-                </Link>
-              </h1>
-            </article>
-          )
-        )}
+        {data.allMdx.nodes.map((node: nodeProp) => (
+          <article key={node.id}>
+            <h1>
+              <Link to={`/projects/${node.frontmatter.slug}`}>
+                {node.frontmatter.title}
+              </Link>
+            </h1>
+          </article>
+        ))}
       </div>
     </Layout>
   );
