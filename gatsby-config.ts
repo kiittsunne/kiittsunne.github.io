@@ -13,6 +13,7 @@ const config: GatsbyConfig = {
   plugins: [
     "gatsby-plugin-sass",
     "gatsby-plugin-anchor-links",
+    "gatsby-transformer-json",
     "gatsby-plugin-dts-css-modules",
     {
       resolve: "gatsby-plugin-google-analytics",
@@ -68,6 +69,14 @@ const config: GatsbyConfig = {
         path: "./src/pages/projects/raws",
       },
       __key: "projects",
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "data",
+        path: "./src/data",
+      },
+      __key: "siteData",
     },
   ],
 };

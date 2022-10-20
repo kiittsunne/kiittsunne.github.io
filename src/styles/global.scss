@@ -25,6 +25,15 @@ body {
   background-color: #4bccb909;
   -mx-overflow-style: none;
   scrollbar-width: none;
+
+  button {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+  }
 }
 
 body::-webkit-scrollbar {
@@ -46,7 +55,7 @@ main > * {
 }
 
 main > div {
-  min-height: calc(72vh);
+  min-height: calc(77vh);
   height: max-content;
 }
 

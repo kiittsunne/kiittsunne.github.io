@@ -58,6 +58,24 @@
   }
 }
 
+.aboutBtns {
+  display: flex;
+  justify-content: center;
+
+  button {
+    color: var(--dark-grey);
+    border: 1px solid var(--strong-accent-cyan);
+    border-radius: 3pt;
+    padding: 0.5em 0.5em;
+    margin: 0.5em;
+    font-size: small;
+
+    &:hover {
+      background-color: var(--strong-accent-cyan);
+      color: white;
+    }
+  }
+}
 
 $breakpoint-halfscreen: 780px;
 $breakpoint-mobile: 400px;

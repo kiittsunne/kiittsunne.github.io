@@ -1,21 +1,78 @@
 import React from "react";
-import type { HeadFC } from "gatsby";
+import { graphql, HeadFC, Link } from "gatsby";
 import * as homepage from "../styles/homepage/index.module.scss";
 import Layout from "../components/layout";
 import Hyuji from "../components/hyuji";
+import Skillbox from "../components/skillbox";
 
-const Home = () => {
+export const query = graphql`
+  {
+    allDataJson {
+      nodes {
+        id
+        skills {
+          title
+          elaboration
+          cubeDown
+          cubeUp
+          decorTop
+          decorBottom
+        }
+      }
+    }
+    allFile(filter: { extension: { eq: "png" }, name: { glob: "skill*" } }) {
+      nodes {
+        name
+        publicURL
+      }
+    }
+    file(extension: { eq: "pdf" }) {
+      publicURL
+    }
+  }
+`;
+
+const Home = ({ data }: any) => {
+  const skillBoxContents = data.allDataJson.nodes[0].skills;
+  const skillBoxImgs = data.allFile.nodes;
+  const file = data.file.publicURL;
+
+  const skillBoxData = skillBoxContents.map((node: any) => {
+    let obj = node;
+    for (let img of skillBoxImgs) {
+      img.name === node.cubeUp && (obj.cubeUp = img.publicURL);
+      img.name === node.cubeDown && (obj.cubeDown = img.publicURL);
+    }
+    return obj;
+  });
+
   return (
     <Layout>
       <>
         <div className={homepage.titleblock}>
-          <h1>Hi! I'm a</h1>
-          <h2>JavaScript / TypeScript Software Engineer</h2>
-          <p>Ex-Shopee Product Ops | Ex-🇸🇬 Public Service</p>
+          <h1>
+            Software Engineer <span>Frontend Developer</span>
+          </h1>
           <Hyuji />
         </div>
 
-        <article id="about">
+        <section id="skills" className={homepage.container}>
+          <h2 className={homepage.sectionHeader}>
+            <span className={homepage.hashtag}>#</span>
+            <span className={homepage.title}> skills</span>
+          </h2>
+          <div className={homepage.skillblock}>
+            {skillBoxData.map((box: any) => (
+              <Skillbox {...box} />
+            ))}
+          </div>
+        </section>
+
+        <section id="about" className={homepage.container}>
+          <h2 id="about" className={homepage.sectionHeader}>
+            <span className={homepage.hashtag}>#</span>
+            <span className={homepage.title}> about me</span>
+          </h2>
           <p>
             I graduated from the National University of Singapore (Political
             Science major, Public Health minor) in 2020 – directly into my
@@ -42,7 +99,6 @@ const Home = () => {
             full-time Software Engineering Intensive, and finally pivot towards
             a career in engineering
           </p>
-        </article>
 
           <div className={homepage.aboutBtns}>
             <Link to="/projects">
