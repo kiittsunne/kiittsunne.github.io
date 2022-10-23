@@ -1,0 +1,28 @@
+{
+  "skills": [
+    {
+      "title": "Programming Languages",
+      "elaboration": "Knowledgeable in JavaScript + TypeScript, and basic data structures and algorithms.",
+      "cubeUp": "skill_codeCubeUp",
+      "cubeDown": "skill_codeCubeDown",
+      "decorTop": "const getDetails = () => (<p>",
+      "decorBottom": "</p>)"
+    },
+    {
+      "title": "Frontend Technologies",
+      "elaboration": "Passionate about UI/UX. ~1.5 years of development experience in HTML, CSS, JS, and React frameworks (e.g. GatsbyJS, NextJS).",
+      "cubeUp": "skill_frameworkCubeUp",
+      "cubeDown": "skill_frameworkCubeDown",
+      "decorTop": "<Details>",
+      "decorBottom": "</Details>"
+    },
+    {
+      "title": "Databases + ORMs",
+      "elaboration": "Familiar with SQL and NoSQL databases, with experience in MongoDB (using Mongoose) and MySQL.",
+      "cubeUp": "skill_dbCubeUp",
+      "cubeDown": "skill_dbCubeDown",
+      "decorTop": "SELECT * FROM details",
+      "decorBottom": ";"
+    }
+  ]
+}
