@@ -1,6 +1,0 @@
-[
-  { "id": "01", "title": "home", "link": "/" },
-  { "id": "02", "title": "skills", "link": "/#skills" },
-  { "id": "03", "title": "about me", "link": "/#about" },
-  { "id": "04", "title": "projects", "link": "/projects" }
-]
