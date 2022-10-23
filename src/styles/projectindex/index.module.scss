@@ -1,0 +1,12 @@
+.container {
+  h1 {
+    color: var(--dark-grey);
+    margin: 0.5em 0.5em;
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+}

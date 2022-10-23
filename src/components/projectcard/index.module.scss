@@ -1,0 +1,47 @@
+.wrapper {
+  background-color: var(--light-cyan);
+  border-radius: 6pt;
+  box-sizing: border-box;
+  padding: 1em;
+  margin: 0.75em 1em;
+  max-width: 550px;
+  flex-grow: 1;
+
+  &:hover {
+    box-shadow: -1px 1px 10px rgba(211, 211, 211, 0.413);
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .header {
+    > * {
+      padding: 0;
+      margin: 0;
+    }
+    h2 {
+      font-size: 14pt;
+      color: var(--dark-grey);
+    }
+    h3 {
+      font-size: 11pt;
+      color: var(--med-grey);
+      margin-top: 0.25em;
+    }
+  }
+  .body {
+    p {
+      font-size: 11pt;
+    }
+  }
+  .refBtns {
+    > * {
+      margin-right: 1em;
+    }
+    a {
+      color: var(--strong-accent-cyan);
+    }
+  }
+}

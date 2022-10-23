@@ -3,12 +3,20 @@
   margin: auto;
 
   .frontmatter {
-    background-color: antiquewhite;
-    height: 20vh;
+    background-color: #4bccb927;
+    padding: 1em 1em;
+    min-height: 12vh;
+    height: max-content;
+    border-radius: 4pt;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
     .title {
       display: flex;
       flex-direction: column;
+      margin: 0;
+      padding: 0;
 
       a {
         text-decoration: none;
@@ -23,7 +31,25 @@
 
       span {
         color: var(--dark-grey);
-        font-size: xx-large;
+        margin-top: 0.15em;
+        margin-bottom: 0.35em;
+        text-align: center;
+        font-size: 1em;
+      }
+    }
+
+    .referBtns {
+      display: flex;
+      justify-content: flex-end;
+
+      > * {
+        padding: 0;
+        margin-left: 0.5em;
+        font-weight: bold;
+        color: var(--med-grey);
+        &:hover {
+          color: var(--strong-accent-cyan);
+        }
       }
     }
   }
@@ -35,6 +61,36 @@
     &::-webkit-scrollbar {
       display: none;
     }
+
+    a {
+      text-decoration: none;
+      color: var(--strong-accent-cyan);
+    }
+
+    pre {
+      background-color: #4bccb927;
+      box-sizing: border-box;
+      border-radius: 4pt;
+      padding: 1.5em;
+      overflow: scroll;
+      -mx-overflow-style: none;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      code {
+        background-color: none;
+        color: var(--dark-grey);
+        font-size: medium;
+      }
+    }
+
+    code {
+      color: var(--strong-accent-cyan);
+      font-size: large;
+    }
   }
 }
 
@@ -44,7 +100,6 @@ $breakpoint-mobile: 400px;
 @media (max-width: $breakpoint-halfscreen) {
   .wrapper {
     .frontmatter {
-      background-color: red;
       .title {
         span {
           font-size: 18pt;
@@ -58,7 +113,6 @@ $breakpoint-mobile: 400px;
   .wrapper {
     max-width: 100%;
     .frontmatter {
-      background-color: blue;
       .title {
         span {
           font-size: 18pt;

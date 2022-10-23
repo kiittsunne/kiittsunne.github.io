@@ -2,7 +2,6 @@ import React from "react";
 import { graphql, Link } from "gatsby";
 import Layout from "../../components/layout";
 import * as project from "../../styles/projects/index.module.scss";
-import { title } from "../../styles/homepage/index.module.scss";
 
 export const query = graphql`
   query ($id: String) {
@@ -31,6 +30,16 @@ const Post = ({ data, children }: { data: any; children: any }) => {
               {frontmatter.title} | {frontmatter.byline}
             </span>
           </h1>
+          <div className={project.referBtns}>
+            <a href={frontmatter.github}>
+              <button>/github</button>
+            </a>
+            {frontmatter.demo && (
+              <a href={frontmatter.demo}>
+                <button>/demo</button>
+              </a>
+            )}
+          </div>
         </div>
         <div className={project.body}>{children}</div>
       </div>

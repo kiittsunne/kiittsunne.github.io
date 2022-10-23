@@ -1,18 +1,25 @@
 //@ts-ignore
 import React from "react";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
 import Layout from "../../components/layout";
+import ProjectCard from "../../components/projectcard";
+import * as projecthome from "../../styles/projectindex/index.module.scss";
 
 export const query = graphql`
   query {
-    allMdx {
+    allMdx(
+      filter: { frontmatter: { published: { eq: true } } }
+      sort: { fields: frontmatter___id, order: ASC }
+    ) {
       nodes {
         frontmatter {
+          byline
+          demo
+          description
+          github
+          technologies
           title
           slug
-          github
-          description
-          demo
         }
         id
       }
@@ -34,16 +41,13 @@ type nodeProp = {
 const Projects = ({ data }: { data: any }) => {
   return (
     <Layout>
-      <div>
-        {data.allMdx.nodes.map((node: nodeProp) => (
-          <article key={node.id}>
-            <h1>
-              <Link to={`/projects/${node.frontmatter.slug}`}>
-                {node.frontmatter.title}
-              </Link>
-            </h1>
-          </article>
-        ))}
+      <div className={projecthome.container}>
+        <h1>Projects</h1>
+        <div className={projecthome.wrapper}>
+          {data.allMdx.nodes.map((node: nodeProp) => (
+            <ProjectCard key={node.id} {...node.frontmatter} />
+          ))}
+        </div>
       </div>
     </Layout>
   );
